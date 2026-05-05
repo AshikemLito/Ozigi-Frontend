@@ -2,8 +2,6 @@ import React from "react";
 import { motion } from "motion/react";
 import { Link } from 'react-router-dom';
 
-import heroImage from '../assets/hero-bg.png';
-
 export function Hero() {
   const title = "Automate content creation without the robot voice";
   const titleChars = title.split("");
@@ -29,9 +27,9 @@ export function Hero() {
     >
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroImage} 
+          src="/hero.png" 
           className="w-full h-full object-cover" 
-          alt="" 
+          alt="Hero Background" 
           aria-hidden="true"
           loading="eager"
           fetchPriority="high"
