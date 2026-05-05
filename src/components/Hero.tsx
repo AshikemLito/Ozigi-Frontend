@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Link } from 'react-router-dom';
+import heroImage from '../assets/hero-bg.png';
 
 export function Hero() {
   const title = "Automate content creation without the robot voice";
@@ -26,12 +27,12 @@ export function Hero() {
       className="relative w-full min-h-[90vh] pt-[130px] lg:pt-[160px] pb-[160px] px-4 lg:px-12 flex flex-col items-start overflow-hidden text-white bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('/hero-bg.png'), linear-gradient(180deg, #1C88ED 0%, #31A5F5 50%, #4FA330 50%, #29571C 100%)",
+          `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("${heroImage}"), linear-gradient(180deg, #1C88ED 0%, #31A5F5 50%, #4FA330 50%, #29571C 100%)`,
       }}
     >
       {/* Preload/Priority loading hint for browsers */}
       <img 
-        src="/hero-bg.png" 
+        src={heroImage} 
         className="hidden" 
         alt="" 
         aria-hidden="true"
