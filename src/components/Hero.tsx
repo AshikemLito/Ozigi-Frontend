@@ -25,14 +25,18 @@ export function Hero() {
     <section
       className="relative w-full min-h-[90vh] pt-[130px] lg:pt-[160px] pb-[160px] px-4 lg:px-12 flex flex-col items-start overflow-hidden text-white bg-cover bg-center bg-no-repeat"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 text-[0px]">
         <img 
-          src="/hero.png" 
+          src="/hero-bg.png" 
           className="w-full h-full object-cover" 
           alt="Hero Background" 
           aria-hidden="true"
           loading="eager"
           fetchPriority="high"
+          onError={(e) => {
+            console.error("Hero image failed to load", e);
+            e.currentTarget.style.display = 'none';
+          }}
         />
         {/* Overlay for darkening */}
         <div className="absolute inset-0 bg-black/15" />
