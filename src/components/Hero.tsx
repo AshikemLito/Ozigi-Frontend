@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Link } from 'react-router-dom';
-import heroImage from '../assets/hero-bg.png';
 
 export function Hero() {
   const title = "Automate content creation without the robot voice";
@@ -25,20 +24,21 @@ export function Hero() {
   return (
     <section
       className="relative w-full min-h-[90vh] pt-[130px] lg:pt-[160px] pb-[160px] px-4 lg:px-12 flex flex-col items-start overflow-hidden text-white bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage:
-          `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("${heroImage}"), linear-gradient(180deg, #1C88ED 0%, #31A5F5 50%, #4FA330 50%, #29571C 100%)`,
-      }}
     >
-      {/* Preload/Priority loading hint for browsers */}
-      <img 
-        src={heroImage} 
-        className="hidden" 
-        alt="" 
-        aria-hidden="true"
-        loading="eager"
-        fetchPriority="high"
-      />
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/hero-bg.png" 
+          className="w-full h-full object-cover" 
+          alt="" 
+          aria-hidden="true"
+          loading="eager"
+          fetchPriority="high"
+        />
+        {/* Overlay for darkening */}
+        <div className="absolute inset-0 bg-black/15" />
+        {/* Fallback gradient if image fails to load or while loading */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#1C88ED_0%,#31A5F5_50%,#4FA330_50%,#29571C_100%)]" />
+      </div>
       <div className="relative z-10 w-full max-w-[1200px] mx-auto">
         <motion.h1 
           className="text-[40px] md:text-[56px] lg:text-[72px] font-normal leading-[1.05] mb-6 max-w-[850px] tracking-tight text-white"
