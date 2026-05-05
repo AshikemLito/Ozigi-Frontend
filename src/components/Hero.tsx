@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import { Link } from 'react-router-dom';
 
 export function Hero() {
-// ... existing logic ...
   const title = "Automate content creation without the robot voice";
   const titleChars = title.split("");
 
@@ -27,9 +26,18 @@ export function Hero() {
       className="relative w-full min-h-[90vh] pt-[130px] lg:pt-[160px] pb-[160px] px-4 lg:px-12 flex flex-col items-start overflow-hidden text-white bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('https://i.ibb.co/x8LTJNbK/hero-bg-png.png'), linear-gradient(180deg, #1C88ED 0%, #31A5F5 50%, #4FA330 50%, #29571C 100%)",
+          "linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('/hero-bg.png'), linear-gradient(180deg, #1C88ED 0%, #31A5F5 50%, #4FA330 50%, #29571C 100%)",
       }}
     >
+      {/* Preload/Priority loading hint for browsers */}
+      <img 
+        src="/hero-bg.png" 
+        className="hidden" 
+        alt="" 
+        aria-hidden="true"
+        loading="eager"
+        fetchPriority="high"
+      />
       <div className="relative z-10 w-full max-w-[1200px] mx-auto">
         <motion.h1 
           className="text-[40px] md:text-[56px] lg:text-[72px] font-normal leading-[1.05] mb-6 max-w-[850px] tracking-tight text-white"
